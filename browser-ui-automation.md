@@ -19,6 +19,8 @@ listed. "What it does" describes the actual tool capability, not marketing copy.
   website and look at it, intended for bug-hunting and drafting UI test cases from what it
   observes on the page, rather than from a spec alone.
 
+- [agent-qa](https://vostride.com/docs/agent-qa/mcp) — Runs natural-language web, Android and iOS tests through local MCP, with recorded evidence, memidex memory and validated self-improvement.
+
 ## Related (not MCP yet, but what these servers build on)
 
 If you want to build your own MCP wrapper around a framework not listed above, these are
