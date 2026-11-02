@@ -8,12 +8,18 @@ category the same way as [awesome-test-automation](../awesome-test-automation).
 Every server listed was confirmed to exist via search (checked as of Oct 2026) before
 being added, and each entry explains what the tool actually does, not just its name.
 
-## Included Claude QA skill
+## Included Claude QA skills
 
-This repository includes a reusable [Essential QA skill](.claude/skills/essential-qa/SKILL.md)
-for risk-based planning, scoped execution, evidence-backed defect triage, and QA reporting.
-Claude Code can discover project skills from this path when the repository is open or mounted.
-To use it as a custom Claude skill, package the `essential-qa` folder containing `SKILL.md`
+This repository includes reusable Claude skills for focused QA workflows:
+
+* [Essential QA](.claude/skills/essential-qa/SKILL.md) — risk-based planning, scoped execution,
+  evidence-backed defect triage, and QA reporting.
+* [Performance Testing Engineer](.claude/skills/performance-testing-engineer/SKILL.md) —
+  workload modelling, safe test design, load-test analysis, distributed-system diagnostics,
+  bottleneck hypotheses, and evidence-based performance reporting.
+
+Claude Code can discover project skills from these paths when the repository is open or
+mounted. To use a skill as a custom Claude skill, package its folder containing `SKILL.md`
 and upload it through Claude's Skills interface. See the
 [Claude custom-skill guide](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills).
 
