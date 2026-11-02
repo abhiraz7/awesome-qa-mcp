@@ -1,10 +1,10 @@
-# Proposal: Essential QA Skill
+# Essential QA Skill: Design Notes
 
 ## Summary
 
-Add an **Essential QA Skill** that gives an AI assistant a repeatable, evidence-based approach to quality assurance. It should guide the work from understanding an application and its risks through test design, execution, defect reporting, and a concise QA summary.
+Define a reusable, evidence-based QA workflow for an AI assistant. The skill guides work from application discovery and risk assessment through test design, execution, defect reporting, and a concise QA summary.
 
-This proposal is documentation-only. It does not add implementation code or require a specific testing tool.
+The initial Claude skill implementation is available at [`.claude/skills/essential-qa/SKILL.md`](../.claude/skills/essential-qa/SKILL.md). It is a Markdown instruction package, not an application-specific test runner, and does not require a particular testing tool.
 
 ## Why
 
@@ -84,7 +84,7 @@ Keep output proportionate to the task: a small check may need only a short recor
 
 ## Acceptance criteria
 
-The proposal is successful if the skill:
+The skill is successful if it:
 
 1. clarifies application context and scope when needed;
 2. prioritizes testing based on risk and user impact;
@@ -104,6 +104,6 @@ The proposal is successful if the skill:
 - A reproducible mismatch is observed: produce a defect report grounded in observed behavior.
 - A broad review has incomplete coverage: state coverage gaps and residual risks in the QA summary.
 
-## Scope of this contribution
+## Implementation status
 
-This is a proposed documentation-only addition. It does not add code, run tests, or assert that any particular application has been tested.
+The branch contains an initial Claude-compatible skill at [`.claude/skills/essential-qa/SKILL.md`](../.claude/skills/essential-qa/SKILL.md). This design note records its intended workflow and acceptance criteria. The contribution adds instructions only; no application was tested or executed as part of this documentation change.
