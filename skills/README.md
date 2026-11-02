@@ -5,9 +5,9 @@ qa skills are reusable instructions that help an ai assistant support real testi
 ## how the skills are organized
 
 - [foundation](foundation/README.md) — shared qa principles used across disciplines.
-- [manual qa](manual-qa/README.md) — testing requirements, behaviour and user workflows.
-- [automation qa](automation-qa/README.md) — reliable automated tests and maintainable frameworks.
-- [ai/ml qa](ai-ml-qa/README.md) — evaluation of models, llm applications, rag and agents.
+- [manual qa](manual-qa/README.md) — requirements, test design, exploration and defect reporting.
+- [automation qa](automation-qa/README.md) — browser automation and failure investigation.
+- [ai/ml qa](ai-ml-qa/README.md) — llm, rag, agent and model evaluation.
 
 ## using a skill
 
@@ -17,4 +17,4 @@ skills should remain useful without an mcp connection. integrations can provide 
 
 ## current status
 
-the collection is being built in stages. the foundation and one starting skill for each discipline are the first step; more specialized skills will be added as they are developed and evaluated.
+the first set of skills covers shared qa principles and core workflows in all three disciplines. the collection will grow as new skills are developed, reviewed and evaluated.
