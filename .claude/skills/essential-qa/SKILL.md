@@ -58,6 +58,18 @@ Map each scenario to a requirement, risk, or explicit exploratory question. Incl
 
 Prefer a small set of distinct, high-value scenarios over repetitive cases. Give checks stable IDs such as `QA-001`. Label inferred expectations as assumptions.
 
+### Maintain requirement-to-test traceability
+
+When requirements or acceptance criteria are supplied, keep a compact map from each requirement/risk to its check IDs. Use this to expose gaps—not to imply that a mapped test has passed.
+
+- **MAPPED** — one or more check IDs are linked; execution is not implied.
+- **EXECUTED** — at least one linked check was attempted; report its individual result status.
+- **VERIFIED** — the relevant acceptance criterion was exercised and evidence supports the expected behavior.
+- **GAP** — no suitable check has been designed; explain the missing coverage.
+- **OUT OF SCOPE** — explicitly excluded, with the reason recorded.
+
+Do not mark a requirement VERIFIED because test cases were written, because a test was skipped, or because a neighboring requirement passed. If the source requirement is ambiguous, record the ambiguity and request clarification only when it blocks meaningful coverage.
+
 ## 5. Prepare and execute safely
 
 Before execution, confirm the environment, build/version, prerequisites, test data, and available tools. Prefer a non-production or explicitly approved test environment. Identify cleanup or rollback needs before changing state.
@@ -68,6 +80,8 @@ Before execution, confirm the environment, build/version, prerequisites, test da
 - A tool being available, a command succeeding, or a page loading does not by itself prove the application behavior passed.
 
 For every attempted check, record the check ID, preconditions/data, action, expected result, actual observation, status, environment/time when known, and evidence reference when available. Mark unavailable fields as unknown rather than guessing.
+
+For multi-check work or when the user requests a reusable QA artifact, use the [QA evidence record template](templates/qa-evidence-record.md). Adapt it to the task and leave unknown fields explicit. For a single quick check, a concise record is sufficient.
 
 ### Result statuses
 
