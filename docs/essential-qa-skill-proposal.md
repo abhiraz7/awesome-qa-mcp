@@ -39,6 +39,10 @@ Use a consistent status vocabulary:
 
 Do not report PASS or FAIL for a check that was not executed. Do not fabricate test results, screenshots, logs, or other evidence. A tool's availability or successful invocation alone does not establish that application behavior passed.
 
+## Requirement-to-test traceability
+
+When requirements or acceptance criteria exist, link each requirement/risk to stable check IDs. Track whether it is mapped, executed, verified, a coverage gap, or explicitly out of scope. Mapping a requirement to a test does not prove that it was executed or passed. Keep verification claims tied to observed results and evidence.
+
 ## Evidence record
 
 For each executed check, capture the information available:
@@ -53,7 +57,7 @@ For each executed check, capture the information available:
 - evidence reference (such as screenshot, log excerpt, trace, or URL), if available; and
 - notes, limitations, and follow-up.
 
-Clearly mark unavailable fields rather than guessing.
+Clearly mark unavailable fields rather than guessing. For multi-check work or a reusable deliverable, use the [QA evidence record template](../.claude/skills/essential-qa/templates/qa-evidence-record.md) and adapt it to the scope. A single quick check may use a concise record.
 
 ## Defect report standard
 
@@ -76,6 +80,7 @@ When relevant, the skill should produce:
 
 - scope and assumptions;
 - risk-ranked test plan or scenario list;
+- requirement-to-test traceability map;
 - execution record with statuses and evidence;
 - actionable defect reports; and
 - QA summary including coverage, known gaps, blockers, residual risks, and next steps.
@@ -92,8 +97,9 @@ The skill is successful if it:
 4. uses the result vocabulary consistently;
 5. never claims execution or evidence that did not occur;
 6. connects findings to observed behavior and evidence;
-7. identifies untested areas and blockers in its summary; and
-8. remains usable with different browsers, test frameworks, and MCP tools.
+7. identifies untested areas and blockers in its summary;
+8. remains usable with different browsers, test frameworks, and MCP tools; and
+9. distinguishes mapped/planned coverage from executed and evidence-supported verification.
 
 ## Suggested evaluation scenarios
 
@@ -103,7 +109,8 @@ The skill is successful if it:
 - A tool returns ambiguous output: use NEEDS REVIEW and explain what remains uncertain.
 - A reproducible mismatch is observed: produce a defect report grounded in observed behavior.
 - A broad review has incomplete coverage: state coverage gaps and residual risks in the QA summary.
+- A requirement is linked to a test that was never run: report it as mapped/planned, not verified.
 
 ## Implementation status
 
-The branch contains an initial Claude-compatible skill at [`.claude/skills/essential-qa/SKILL.md`](../.claude/skills/essential-qa/SKILL.md). This design note records its intended workflow and acceptance criteria. The contribution adds instructions only; no application was tested or executed as part of this documentation change.
+The branch contains a Claude-compatible skill at [`.claude/skills/essential-qa/SKILL.md`](../.claude/skills/essential-qa/SKILL.md) and a reusable evidence record at [`.claude/skills/essential-qa/templates/qa-evidence-record.md`](../.claude/skills/essential-qa/templates/qa-evidence-record.md). This design note records their intended workflow and acceptance criteria. The contribution adds instructions and a template only; no application was tested or executed as part of this documentation change.
