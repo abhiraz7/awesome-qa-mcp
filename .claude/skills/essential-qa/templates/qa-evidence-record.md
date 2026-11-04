@@ -14,13 +14,21 @@ Use this record for a scoped QA activity. Duplicate the check row for each scena
 - **Scope and constraints:**
 - **Assumptions:**
 
+## Risk rating guide
+
+Use the anchored scales in the Essential QA skill and its [QA risk assessment guide](risk-assessment-guide.md). Record the reason for material ratings; do not treat an unknown impact or likelihood as a low score.
+
+- **Impact:** 1 = contained/minor; 2 = material but limited or recoverable; 3 = critical, broad, security/privacy, financial, or irreversible consequence.
+- **Likelihood:** 1 = unlikely based on available evidence; 2 = plausible due to complexity, change, weak coverage, or related signals; 3 = likely based on observed/repeated failure or a strong known signal.
+- **Score:** impact × likelihood. **High:** 6 or 9; **Medium:** 3 or 4; **Low:** 1 or 2. Use **UNASSESSED** if either input is unknown, or mark a score provisional and state the assumption.
+
 ## Requirement-to-test map
 
-Use the coverage states defined in the Essential QA skill. A mapped or planned check is not evidence that the requirement passed.
+Use the coverage states defined in the Essential QA skill. A mapped or planned check is not evidence that the requirement passed. Keep risk score and coverage state separate: risk expresses priority; coverage expresses test progress.
 
-| Requirement / risk ID | Requirement or risk | Check IDs | Coverage state | Gap / scope note |
-|---|---|---|---|---|
-| REQ-001 | | QA-001 | MAPPED | |
+| Requirement / risk ID | Requirement or risk | Impact (1–3) | Likelihood (1–3) | Risk score | Priority / rationale | Check IDs | Coverage state | Gap / scope note |
+|---|---|---:|---:|---:|---|---|---|---|
+| REQ-001 | | | | | | QA-001 | MAPPED | |
 
 ## Check design and execution record
 
