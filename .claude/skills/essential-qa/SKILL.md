@@ -32,7 +32,24 @@ Use supplied requirements, code, test suites, diffs, UI, API specifications, and
 
 ## 3. Prioritize by risk
 
-Rank checks by user/business impact and likelihood of failure. A simple heuristic is impact (1–3) × likelihood (1–3): 6–9 = high, 3–4 = medium, and 1–2 = low. Explain material scoring assumptions; this is a prioritization aid, not an objective guarantee.
+Rank checks by user/business impact and likelihood of failure. Use anchored 1–3 scales so scores are explainable and repeatable. See the [QA risk assessment guide](templates/risk-assessment-guide.md) for the reusable scoring reference.
+
+**Impact**
+- **1 — Low:** contained inconvenience or cosmetic issue; no meaningful data, security, or critical-workflow consequence; a practical workaround exists.
+- **2 — Moderate:** a feature or journey is materially degraded for some users, or a recoverable data/function issue occurs; a workaround may exist.
+- **3 — High:** a critical journey is unavailable, impact is broad, or the scenario could affect security/privacy, financial outcomes, or irreversible actions.
+
+**Likelihood**
+- **1 — Unlikely:** available evidence suggests the failure is uncommon; no known trigger or recent related signal is present.
+- **2 — Plausible:** complexity, a recent change, weak coverage, or related behavior gives a credible reason to test for it.
+- **3 — Likely:** the failure has been observed, repeatedly reported, or is strongly indicated by a known defect, incident, or direct change.
+
+Calculate **risk score = impact × likelihood**:
+- **High:** 6 or 9
+- **Medium:** 3 or 4
+- **Low:** 1 or 2
+
+If impact or likelihood cannot be assessed from available context, mark the rating **UNASSESSED** rather than silently assigning 1. If a provisional score is still useful, state the assumption and keep the rating provisional. The score is a prioritization aid, not an objective guarantee; explain material scoring assumptions.
 
 Prioritize, where relevant:
 
