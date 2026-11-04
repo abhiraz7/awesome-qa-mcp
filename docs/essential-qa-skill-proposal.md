@@ -20,7 +20,7 @@ QA work can become inconsistent when an assistant jumps directly into test execu
 
 1. **Discover the application** — identify the app, entry points, user roles, environment, and available context. Ask for missing essentials rather than inventing them.
 2. **Define scope** — establish objectives, in-scope and out-of-scope areas, assumptions, constraints, and dependencies.
-3. **Assess risk** — prioritize critical user journeys, business impact, security/privacy-sensitive flows, and likely regression areas.
+3. **Assess risk** — prioritize critical user journeys, business impact, security/privacy-sensitive flows, and likely regression areas. Use anchored impact and likelihood ratings (1–3), multiply them for a high/medium/low score, and mark unknown ratings UNASSESSED instead of assuming low risk.
 4. **Plan tests** — map requirements and risks to scenarios; include positive, negative, boundary, state, and regression coverage as appropriate.
 5. **Prepare execution** — identify prerequisites, test data, environment, and available tools or MCPs. Tools are execution adapters; the skill defines the QA method.
 6. **Execute and capture evidence** — perform only checks that are actually possible. Record observations and relevant evidence for each result.
@@ -99,7 +99,8 @@ The skill is successful if it:
 6. connects findings to observed behavior and evidence;
 7. identifies untested areas and blockers in its summary;
 8. remains usable with different browsers, test frameworks, and MCP tools; and
-9. distinguishes mapped/planned coverage from executed and evidence-supported verification.
+9. distinguishes mapped/planned coverage from executed and evidence-supported verification; and
+10. applies anchored risk-rating definitions consistently and does not treat unknown risk inputs as low.
 
 ## Suggested evaluation scenarios
 
