@@ -62,16 +62,25 @@ Complete for each actionable failure. Keep the defect ID linked to its originati
 
 ## QA summary
 
+For broad testing or release validation, use the [QA exit decision guide](qa-exit-decision-guide.md). The overall recommendation is evidence-based QA guidance, not release authorization.
+
+- **Overall QA recommendation (NOT READY / INCONCLUSIVE / READY WITH RISKS / READY FOR QA SIGN-OFF REVIEW):**
+- **Decision basis / agreed exit criteria:**
 - **Scope and approach:**
 - **Planned checks:**
 - **Attempted checks:**
 - **Result counts (PASS / FAIL / BLOCKED / NOT RUN / NEEDS REVIEW):**
+- **Critical criteria verified:**
+- **Known blocking failures:**
+- **Critical checks BLOCKED / NOT RUN / NEEDS REVIEW:**
 - **Requirements verified:**
 - **Coverage gaps and exclusions:**
+- **Open non-critical issues:**
+- **Residual risks and disposition / owner:**
 - **Key findings:**
-- **Residual risks / limitations:**
-- **Recommended next action:**
+- **Evidence references:**
+- **Limitations and recommended next action:**
 
 ### Reporting integrity
 
-Only report behavior supported by the recorded observations. Distinguish planned coverage from executed coverage. If a criterion, environment, timestamp, or evidence reference is unavailable, mark it unknown or omit it rather than inventing it.
+Only report behavior supported by the recorded observations. Distinguish planned coverage from executed coverage. If a criterion, environment, timestamp, or evidence reference is unavailable, mark it unknown or omit it rather than inventing it. Do not infer release approval from a QA recommendation or from a high count of passing checks.
