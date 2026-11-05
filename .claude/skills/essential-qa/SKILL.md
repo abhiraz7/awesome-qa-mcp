@@ -137,6 +137,19 @@ For a small task, keep the report short. For broader testing, use a table such a
 | ID | Risk | Check | Expected | Actual | Status | Evidence |
 |---|---|---|---|---|---|---|
 
+### Make an overall QA recommendation
+
+For release validation, broad multi-check work, or an explicit go/no-go request, use the [QA exit decision guide](templates/qa-exit-decision-guide.md) to derive an overall recommendation from agreed criteria and evidence. Do not derive it by counting PASS results or averaging risk scores.
+
+Use one of these labels:
+
+- **NOT READY** — a confirmed failure against an agreed blocking criterion or another explicit exit criterion is unmet.
+- **INCONCLUSIVE** — critical scope cannot be verified because evidence, access, criteria, or execution is insufficient.
+- **READY WITH RISKS** — critical criteria are verified and no known blocker remains, but non-critical issues, gaps, or residual risks need disposition.
+- **READY FOR QA SIGN-OFF REVIEW** — agreed critical criteria and high-risk coverage are supported by sufficient evidence, with known limitations documented.
+
+State the decision basis, critical criteria verified, blocking failures, critical checks that are blocked/not run/under review, residual risks and their disposition, and evidence references. If the criteria or criticality are unknown, state the assumption or use INCONCLUSIVE. A QA recommendation is not release authorization; the responsible owner makes the release decision and accepts residual risk.
+
 ## 7. Close with an honest next step
 
 State what was verified, what remains uncertain or untested, and the highest-value next action. Keep claims traceable to observations or cited evidence. Never fabricate execution, screenshots, logs, results, or coverage.
