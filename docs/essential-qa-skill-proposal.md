@@ -24,7 +24,7 @@ QA work can become inconsistent when an assistant jumps directly into test execu
 4. **Plan tests** — map requirements and risks to scenarios; include positive, negative, boundary, state, and regression coverage as appropriate.
 5. **Prepare execution** — identify prerequisites, test data, environment, and available tools or MCPs. Tools are execution adapters; the skill defines the QA method.
 6. **Execute and capture evidence** — perform only checks that are actually possible. Record observations and relevant evidence for each result.
-7. **Triage defects** — describe reproducible behavior, expected versus actual results, impact, and supporting evidence.
+7. **Triage defects** — confirm the report where possible, document reproducible behavior, separate severity (impact) from priority (fix urgency), record evidence and classification confidence, and route security/privacy/safety concerns through the appropriate incident process.
 8. **Summarize and recommend** — report coverage, results, blockers, residual risks, and an evidence-based QA recommendation when the scope warrants one.
 
 ## Result vocabulary
@@ -78,12 +78,16 @@ A defect report should include:
 - environment and build/version, if known;
 - preconditions and reproducible steps;
 - expected result and actual result;
-- severity/priority with rationale, when enough context exists;
+- affected users, workflow, data, and demonstrated impact;
+- severity (impact) and priority (fix urgency) as separate classifications, each with its own rationale;
+- classification confidence (confirmed, provisional, or needs triage);
 - reproducibility;
 - evidence references; and
-- user or business impact.
+- owner or disposition, when known.
 
-Do not state severity, priority, or root cause as fact when evidence does not support it. Label hypotheses as hypotheses.
+Use the [defect severity and priority guide](../.claude/skills/essential-qa/templates/defect-severity-priority-guide.md) as a fallback when the project has no established taxonomy. Follow the project's existing definitions when supplied. Do not calculate priority from severity or from the test-planning risk score. If context is insufficient, mark severity UNASSESSED or priority UNASSIGNED rather than defaulting to the lowest level. The responsible owner confirms prioritization and release-blocking decisions.
+
+Security, privacy, safety, or serious data incidents must follow the applicable specialist incident-response process; the general defect rubric does not replace it.
 
 ## Expected deliverables
 
@@ -111,8 +115,9 @@ The skill is successful if it:
 7. identifies untested areas and blockers in its summary;
 8. remains usable with different browsers, test frameworks, and MCP tools;
 9. distinguishes mapped/planned coverage from executed and evidence-supported verification;
-10. applies anchored risk-rating definitions consistently and does not treat unknown risk inputs as low; and
-11. derives any overall QA recommendation from agreed criteria and evidence, not from pass counts, and does not present the recommendation as release authorization.
+10. applies anchored risk-rating definitions consistently and does not treat unknown risk inputs as low;
+11. derives any overall QA recommendation from agreed criteria and evidence, not from pass counts, and does not present the recommendation as release authorization; and
+12. keeps defect severity separate from fix priority, uses explicit rating anchors or the project's taxonomy, and marks unsupported classifications as unassessed, unassigned, or provisional.
 
 ## Suggested evaluation scenarios
 
@@ -126,7 +131,10 @@ The skill is successful if it:
 - A critical acceptance criterion is BLOCKED and no known blocking failure is established: recommend INCONCLUSIVE and name the evidence needed.
 - A confirmed failure violates an agreed blocking criterion while other checks pass: recommend NOT READY and cite the failure rather than averaging the results.
 - Critical criteria are verified but non-critical gaps remain: use READY WITH RISKS and identify their disposition; do not imply risk acceptance if it is unrecorded.
+- The same defect has broad functional impact but a temporary safe workaround: rate severity and priority independently, explain the evidence, and leave owner confirmation explicit.
+- A minor cosmetic defect has an imminent contractual or launch deadline: explain why priority may differ from severity without inflating impact.
+- A report alleges a security/privacy incident: preserve evidence and route it through the specialist incident process rather than applying only the normal defect rubric.
 
 ## Implementation status
 
-The branch contains a Claude-compatible skill at [`.claude/skills/essential-qa/SKILL.md`](../.claude/skills/essential-qa/SKILL.md), a reusable evidence record at [`.claude/skills/essential-qa/templates/qa-evidence-record.md`](../.claude/skills/essential-qa/templates/qa-evidence-record.md), a risk assessment guide at [`.claude/skills/essential-qa/templates/risk-assessment-guide.md`](../.claude/skills/essential-qa/templates/risk-assessment-guide.md), and an exit decision guide at [`.claude/skills/essential-qa/templates/qa-exit-decision-guide.md`](../.claude/skills/essential-qa/templates/qa-exit-decision-guide.md). This design note records their intended workflow and acceptance criteria. These are instruction and template changes; no application was tested or executed as part of this documentation work.
+The branch contains a Claude-compatible skill at [`.claude/skills/essential-qa/SKILL.md`](../.claude/skills/essential-qa/SKILL.md), a reusable evidence record at [`.claude/skills/essential-qa/templates/qa-evidence-record.md`](../.claude/skills/essential-qa/templates/qa-evidence-record.md), a risk assessment guide at [`.claude/skills/essential-qa/templates/risk-assessment-guide.md`](../.claude/skills/essential-qa/templates/risk-assessment-guide.md), an exit decision guide at [`.claude/skills/essential-qa/templates/qa-exit-decision-guide.md`](../.claude/skills/essential-qa/templates/qa-exit-decision-guide.md), and a [defect severity and priority guide](../.claude/skills/essential-qa/templates/defect-severity-priority-guide.md). This design note records their intended workflow and acceptance criteria. These are instruction and template changes; no application was tested or executed as part of this documentation work.
