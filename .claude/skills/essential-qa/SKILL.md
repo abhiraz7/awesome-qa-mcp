@@ -120,9 +120,11 @@ A defect report should contain, when known:
 - expected versus actual behavior;
 - reproducibility and evidence;
 - user/business impact;
-- severity or priority with rationale.
+- **severity (impact)** and **priority (fix urgency)** as separate classifications, each with its own rationale.
 
-Do not present root cause, severity, or priority as fact without supporting evidence. Mark hypotheses explicitly.
+Use the [defect severity and priority guide](templates/defect-severity-priority-guide.md) when a consistent triage recommendation is needed. Follow an existing project taxonomy if one is supplied. Do not derive priority mechanically from severity or from the test-planning risk score. If context is insufficient, use UNASSESSED for severity or UNASSIGNED for priority, and mark the recommendation provisional or needing triage. A human owner confirms prioritization and any release-blocking decision.
+
+Do not present root cause, severity, or priority as fact without supporting evidence. Mark hypotheses explicitly. If a report suggests a security, privacy, safety, or serious data incident, follow the organization's specialist incident-response process rather than treating this rubric as a substitute.
 
 A concise QA summary should state:
 
