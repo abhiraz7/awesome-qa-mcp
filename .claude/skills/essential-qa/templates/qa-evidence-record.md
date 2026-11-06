@@ -46,7 +46,7 @@ Allowed statuses: **PASS**, **FAIL**, **BLOCKED**, **NOT RUN**, **NEEDS REVIEW**
 
 ## Defect notes
 
-Complete for each actionable failure. Keep the defect ID linked to its originating check.
+Complete for each actionable failure. Keep the defect ID linked to its originating check. Use the [defect severity and priority guide](defect-severity-priority-guide.md); follow an existing project taxonomy when supplied.
 
 - **Defect ID / title:**
 - **Related check ID:**
@@ -55,10 +55,17 @@ Complete for each actionable failure. Keep the defect ID linked to its originati
 - **Expected behavior:**
 - **Actual behavior:**
 - **Reproducibility:**
-- **Impact:**
-- **Severity / priority and rationale:**
+- **Affected users / workflow / data:**
+- **Severity (S1–S4 or UNASSESSED):**
+- **Severity rationale (impact):**
+- **Priority (P1–P4 or UNASSIGNED):**
+- **Priority rationale (urgency / deadline):**
+- **Classification confidence (CONFIRMED / PROVISIONAL / NEEDS TRIAGE):**
+- **Triage owner / disposition:**
 - **Evidence:**
 - **Root-cause hypothesis (if any; label as unconfirmed):**
+
+Keep severity, priority, and the test-planning risk score separate. Severity describes impact; priority describes urgency; the risk score helps decide what to test.
 
 ## QA summary
 
