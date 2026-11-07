@@ -32,7 +32,24 @@ Use supplied requirements, code, test suites, diffs, UI, API specifications, and
 
 ## 3. Prioritize by risk
 
-Rank checks by user/business impact and likelihood of failure. A simple heuristic is impact (1–3) × likelihood (1–3): 6–9 = high, 3–4 = medium, and 1–2 = low. Explain material scoring assumptions; this is a prioritization aid, not an objective guarantee.
+Rank checks by user/business impact and likelihood of failure. Use anchored 1–3 scales so scores are explainable and repeatable. See the [QA risk assessment guide](templates/risk-assessment-guide.md) for the reusable scoring reference.
+
+**Impact**
+- **1 — Low:** contained inconvenience or cosmetic issue; no meaningful data, security, or critical-workflow consequence; a practical workaround exists.
+- **2 — Moderate:** a feature or journey is materially degraded for some users, or a recoverable data/function issue occurs; a workaround may exist.
+- **3 — High:** a critical journey is unavailable, impact is broad, or the scenario could affect security/privacy, financial outcomes, or irreversible actions.
+
+**Likelihood**
+- **1 — Unlikely:** available evidence suggests the failure is uncommon; no known trigger or recent related signal is present.
+- **2 — Plausible:** complexity, a recent change, weak coverage, or related behavior gives a credible reason to test for it.
+- **3 — Likely:** the failure has been observed, repeatedly reported, or is strongly indicated by a known defect, incident, or direct change.
+
+Calculate **risk score = impact × likelihood**:
+- **High:** 6 or 9
+- **Medium:** 3 or 4
+- **Low:** 1 or 2
+
+If impact or likelihood cannot be assessed from available context, mark the rating **UNASSESSED** rather than silently assigning 1. If a provisional score is still useful, state the assumption and keep the rating provisional. The score is a prioritization aid, not an objective guarantee; explain material scoring assumptions.
 
 Prioritize, where relevant:
 
@@ -58,6 +75,18 @@ Map each scenario to a requirement, risk, or explicit exploratory question. Incl
 
 Prefer a small set of distinct, high-value scenarios over repetitive cases. Give checks stable IDs such as `QA-001`. Label inferred expectations as assumptions.
 
+### Maintain requirement-to-test traceability
+
+When requirements or acceptance criteria are supplied, keep a compact map from each requirement/risk to its check IDs. Use this to expose gaps—not to imply that a mapped test has passed.
+
+- **MAPPED** — one or more check IDs are linked; execution is not implied.
+- **EXECUTED** — at least one linked check was attempted; report its individual result status.
+- **VERIFIED** — the relevant acceptance criterion was exercised and evidence supports the expected behavior.
+- **GAP** — no suitable check has been designed; explain the missing coverage.
+- **OUT OF SCOPE** — explicitly excluded, with the reason recorded.
+
+Do not mark a requirement VERIFIED because test cases were written, because a test was skipped, or because a neighboring requirement passed. If the source requirement is ambiguous, record the ambiguity and request clarification only when it blocks meaningful coverage.
+
 ## 5. Prepare and execute safely
 
 Before execution, confirm the environment, build/version, prerequisites, test data, and available tools. Prefer a non-production or explicitly approved test environment. Identify cleanup or rollback needs before changing state.
@@ -68,6 +97,8 @@ Before execution, confirm the environment, build/version, prerequisites, test da
 - A tool being available, a command succeeding, or a page loading does not by itself prove the application behavior passed.
 
 For every attempted check, record the check ID, preconditions/data, action, expected result, actual observation, status, environment/time when known, and evidence reference when available. Mark unavailable fields as unknown rather than guessing.
+
+For multi-check work or when the user requests a reusable QA artifact, use the [QA evidence record template](templates/qa-evidence-record.md). Adapt it to the task and leave unknown fields explicit. For a single quick check, a concise record is sufficient.
 
 ### Result statuses
 
@@ -89,9 +120,11 @@ A defect report should contain, when known:
 - expected versus actual behavior;
 - reproducibility and evidence;
 - user/business impact;
-- severity or priority with rationale.
+- **severity (impact)** and **priority (fix urgency)** as separate classifications, each with its own rationale.
 
-Do not present root cause, severity, or priority as fact without supporting evidence. Mark hypotheses explicitly.
+Use the [defect severity and priority guide](templates/defect-severity-priority-guide.md) when a consistent triage recommendation is needed. Follow an existing project taxonomy if one is supplied. Do not derive priority mechanically from severity or from the test-planning risk score. If context is insufficient, use UNASSESSED for severity or UNASSIGNED for priority, and mark the recommendation provisional or needing triage. A human owner confirms prioritization and any release-blocking decision.
+
+Do not present root cause, severity, or priority as fact without supporting evidence. Mark hypotheses explicitly. If a report suggests a security, privacy, safety, or serious data incident, follow the organization's specialist incident-response process rather than treating this rubric as a substitute.
 
 A concise QA summary should state:
 
@@ -105,6 +138,19 @@ For a small task, keep the report short. For broader testing, use a table such a
 
 | ID | Risk | Check | Expected | Actual | Status | Evidence |
 |---|---|---|---|---|---|---|
+
+### Make an overall QA recommendation
+
+For release validation, broad multi-check work, or an explicit go/no-go request, use the [QA exit decision guide](templates/qa-exit-decision-guide.md) to derive an overall recommendation from agreed criteria and evidence. Do not derive it by counting PASS results or averaging risk scores.
+
+Use one of these labels:
+
+- **NOT READY** — a confirmed failure against an agreed blocking criterion or another explicit exit criterion is unmet.
+- **INCONCLUSIVE** — critical scope cannot be verified because evidence, access, criteria, or execution is insufficient.
+- **READY WITH RISKS** — critical criteria are verified and no known blocker remains, but non-critical issues, gaps, or residual risks need disposition.
+- **READY FOR QA SIGN-OFF REVIEW** — agreed critical criteria and high-risk coverage are supported by sufficient evidence, with known limitations documented.
+
+State the decision basis, critical criteria verified, blocking failures, critical checks that are blocked/not run/under review, residual risks and their disposition, and evidence references. If the criteria or criticality are unknown, state the assumption or use INCONCLUSIVE. A QA recommendation is not release authorization; the responsible owner makes the release decision and accepts residual risk.
 
 ## 7. Close with an honest next step
 

@@ -1,0 +1,38 @@
+name: Validate Claude skills
+
+on:
+  pull_request:
+    paths:
+      - ".claude/skills/**"
+      - "scripts/validate_skills.py"
+      - "tests/test_validate_skills.py"
+      - ".github/workflows/validate-skills.yml"
+  push:
+    paths:
+      - ".claude/skills/**"
+      - "scripts/validate_skills.py"
+      - "tests/test_validate_skills.py"
+      - ".github/workflows/validate-skills.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Validate skill structure and links
+        run: python scripts/validate_skills.py
+
+      - name: Run validator unit tests
+        run: python -m unittest discover -s tests -v
