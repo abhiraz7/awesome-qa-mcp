@@ -14,7 +14,7 @@ SKILL_NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 FENCE_RE = re.compile(r"^\s{0,3}(\x60{3,}|~{3,})(.*)$")
 INLINE_CODE_RE = re.compile(r"(?<!\x60)\x60+.*?\x60+(?!\x60)")
 MARKDOWN_LINK_RE = re.compile(
-    r"!?\\[[^\\]]*\\]\\((?P<target><[^>]*>|[^)\\s]+)(?:\\s+[^)]*)?\\)"
+    r"!?\[[^\]]*\]\((?P<target><[^>]*>|[^\s)]+)(?:\s+[^)]*)?\)"
 )
 
 
