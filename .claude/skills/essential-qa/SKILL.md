@@ -152,6 +152,10 @@ Use one of these labels:
 
 State the decision basis, critical criteria verified, blocking failures, critical checks that are blocked/not run/under review, residual risks and their disposition, and evidence references. If the criteria or criticality are unknown, state the assumption or use INCONCLUSIVE. A QA recommendation is not release authorization; the responsible owner makes the release decision and accepts residual risk.
 
+## 7. Evaluate changes to this skill
+
+When reviewing or changing the Essential QA instructions, use the [Essential QA evaluation matrix](evaluations/essential-qa-evaluation-matrix.md) to check for regressions in execution honesty, requirement traceability, exit recommendations, defect triage, and safe handling of untrusted or destructive scenarios. The matrix evaluates assistant behavior; it is not an application test suite and a passing run does not guarantee correct behavior for every task.
+
 ## 7. Close with an honest next step
 
 State what was verified, what remains uncertain or untested, and the highest-value next action. Keep claims traceable to observations or cited evidence. Never fabricate execution, screenshots, logs, results, or coverage.
