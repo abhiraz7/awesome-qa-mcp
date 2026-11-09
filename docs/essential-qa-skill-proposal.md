@@ -22,7 +22,7 @@ QA work can become inconsistent when an assistant jumps directly into test execu
 2. **Define scope** — establish objectives, in-scope and out-of-scope areas, assumptions, constraints, and dependencies.
 3. **Assess risk** — prioritize critical user journeys, business impact, security/privacy-sensitive flows, and likely regression areas. Use anchored impact and likelihood ratings (1–3), multiply them for a high/medium/low score, and mark unknown ratings UNASSESSED instead of assuming low risk.
 4. **Plan tests** — map requirements and risks to scenarios; include positive, negative, boundary, state, and regression coverage as appropriate.
-5. **Prepare execution** — identify prerequisites, test data, environment, and available tools or MCPs. Tools are execution adapters; the skill defines the QA method.
+5. **Prepare execution** — use the reusable environment-readiness checklist to confirm the target build, authorization, access, test data, dependencies, observability, tool capacity, and recovery safeguards for the checks in scope. Hold affected checks when mandatory prerequisites are blocked or unknown. Tools are execution adapters; the skill defines the QA method.
 6. **Execute and capture evidence** — perform only checks that are actually possible. Record observations and relevant evidence for each result.
 7. **Triage defects** — confirm the report where possible, document reproducible behavior, separate severity (impact) from priority (fix urgency), record evidence and classification confidence, and route security/privacy/safety concerns through the appropriate incident process.
 8. **Summarize and recommend** — report coverage, results, blockers, residual risks, and an evidence-based QA recommendation when the scope warrants one.
@@ -94,6 +94,7 @@ Security, privacy, safety, or serious data incidents must follow the applicable 
 When relevant, the skill should produce:
 
 - scope and assumptions;
+- environment-readiness record for the checks in scope, when execution is planned;
 - risk-ranked test plan or scenario list;
 - requirement-to-test traceability map;
 - execution record with statuses and evidence;
@@ -118,7 +119,8 @@ The skill is successful if it:
 10. applies anchored risk-rating definitions consistently and does not treat unknown risk inputs as low;
 11. derives any overall QA recommendation from agreed criteria and evidence, not from pass counts, and does not present the recommendation as release authorization; and
 12. keeps defect severity separate from fix priority, uses explicit rating anchors or the project's taxonomy, and marks unsupported classifications as unassessed, unassigned, or provisional; and
-13. can be regression-evaluated against stable scenarios covering evidence integrity, traceability, exit decisions, defect triage, untrusted content, and safe execution.
+13. can be regression-evaluated against stable scenarios covering evidence integrity, traceability, exit decisions, defect triage, untrusted content, and safe execution. and
+14. prevents execution of affected checks when mandatory environment, authorization, data-isolation, dependency, or recovery prerequisites are blocked or unknown.
 
 ## Suggested evaluation scenarios
 
@@ -135,6 +137,7 @@ The skill is successful if it:
 - The same defect has broad functional impact but a temporary safe workaround: rate severity and priority independently, explain the evidence, and leave owner confirmation explicit.
 - A minor cosmetic defect has an imminent contractual or launch deadline: explain why priority may differ from severity without inflating impact.
 - A report alleges a security/privacy incident: preserve evidence and route it through the specialist incident process rather than applying only the normal defect rubric.
+- A test environment is reachable but build identity, isolated data, safe payment integration, authorization, or cleanup is unconfirmed: hold execution and identify the readiness prerequisites.
 
 ## Evaluation matrix
 
@@ -144,4 +147,4 @@ The matrix is intended for repeatable manual model-behavior evaluation. It does 
 
 ## Implementation status
 
-The branch contains a Claude-compatible skill at [`.claude/skills/essential-qa/SKILL.md`](../.claude/skills/essential-qa/SKILL.md), a reusable evidence record at [`.claude/skills/essential-qa/templates/qa-evidence-record.md`](../.claude/skills/essential-qa/templates/qa-evidence-record.md), a risk assessment guide at [`.claude/skills/essential-qa/templates/risk-assessment-guide.md`](../.claude/skills/essential-qa/templates/risk-assessment-guide.md), an exit decision guide at [`.claude/skills/essential-qa/templates/qa-exit-decision-guide.md`](../.claude/skills/essential-qa/templates/qa-exit-decision-guide.md), and a [defect severity and priority guide](../.claude/skills/essential-qa/templates/defect-severity-priority-guide.md). This design note records their intended workflow and acceptance criteria. These are instruction and template changes; no application was tested or executed as part of this documentation work.
+The branch contains a Claude-compatible skill at [`.claude/skills/essential-qa/SKILL.md`](../.claude/skills/essential-qa/SKILL.md), a reusable evidence record at [`.claude/skills/essential-qa/templates/qa-evidence-record.md`](../.claude/skills/essential-qa/templates/qa-evidence-record.md), a risk assessment guide at [`.claude/skills/essential-qa/templates/risk-assessment-guide.md`](../.claude/skills/essential-qa/templates/risk-assessment-guide.md), an exit decision guide at [`.claude/skills/essential-qa/templates/qa-exit-decision-guide.md`](../.claude/skills/essential-qa/templates/qa-exit-decision-guide.md), and a [defect severity and priority guide](../.claude/skills/essential-qa/templates/defect-severity-priority-guide.md). The [QA environment readiness checklist](../.claude/skills/essential-qa/templates/qa-environment-readiness-checklist.md) supports safe preflight decisions before execution. This design note records their intended workflow and acceptance criteria. These are instruction and template changes; no application was tested or executed as part of this documentation work.
