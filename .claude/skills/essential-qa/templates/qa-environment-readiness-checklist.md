@@ -15,7 +15,7 @@ Readiness is **scope-specific**: record the target build, environment, user role
 - **Operator / QA owner:**
 - **Environment or service owner:**
 
-Use `READY`, `BLOCKED`, `NOT CHECKED`, or `N/A` for each item. Add a short evidence reference or explanation. Use N/A only with a reason.
+Use `READY`, `BLOCKED`, `NOT CHECKED`, `N/A`, or `ACCEPTED LIMITATION` for each item. Add a short evidence reference or explanation. Use N/A only with a reason. Use ACCEPTED LIMITATION only for a non-critical gap with a recorded decision from the appropriate owner.
 
 ## Preflight checks
 
@@ -38,11 +38,11 @@ Use `READY`, `BLOCKED`, `NOT CHECKED`, or `N/A` for each item. Add a short evide
 
 Apply the decision to the specific checks listed in the record:
 
-- **READY** — every mandatory item is READY, or explicitly N/A with a reason. The approved scope and safety limits are understood.
+- **READY** — every mandatory item is READY or explicitly N/A with a reason. A non-critical gap may be recorded as ACCEPTED LIMITATION only when the appropriate owner, decision date/reference, affected scope, and impact are documented. The approved scope and safety limits are understood.
 - **BLOCKED** — a mandatory prerequisite is not met, including missing authorization, unsafe data, an uncontrolled external effect, or an unresolved recovery requirement. Do not execute the affected checks.
 - **NOT ASSESSED** — one or more mandatory prerequisites remain NOT CHECKED and there is not enough evidence to determine readiness. Do not execute checks whose safety or validity depends on those prerequisites.
 
-A non-critical gap may be accepted only by the appropriate owner and only when it does not undermine authorization, safety, data isolation, or the validity of the affected check. Record the decision and limitation; do not silently convert a gap to READY.
+ACCEPTED LIMITATION cannot waive authorization, safety, data-isolation, recovery, or other mandatory prerequisites. Do not silently convert an unresolved gap to READY.
 
 Readiness is not a test result. It does not mean the application passed, and it does not authorize activity outside the stated scope.
 
