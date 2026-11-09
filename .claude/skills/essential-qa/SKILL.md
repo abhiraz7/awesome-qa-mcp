@@ -89,7 +89,7 @@ Do not mark a requirement VERIFIED because test cases were written, because a te
 
 ## 5. Prepare and execute safely
 
-Before execution, confirm the environment, build/version, prerequisites, test data, and available tools. Prefer a non-production or explicitly approved test environment. Identify cleanup or rollback needs before changing state.
+Before execution, use the [QA environment readiness checklist](templates/qa-environment-readiness-checklist.md) for multi-step work, state-changing actions, or whenever environment readiness is uncertain. Apply readiness to the specific checks in scope: if a mandatory authorization, safety, access, data-isolation, dependency, or recovery prerequisite is BLOCKED or NOT CHECKED, do not execute the affected check. A reachable URL alone does not establish readiness. Prefer a non-production or explicitly approved test environment, and identify cleanup or rollback needs before changing state.
 
 - Do not perform destructive, irreversible, or externally visible actions (for example, deleting real data, placing an order, or sending a real notification) without explicit authorization and a safe plan.
 - Use test accounts and synthetic data where possible. Do not expose credentials, tokens, personal data, or secrets in output; redact evidence.
@@ -156,6 +156,6 @@ State the decision basis, critical criteria verified, blocking failures, critica
 
 When reviewing or changing the Essential QA instructions, use the [Essential QA evaluation matrix](evaluations/essential-qa-evaluation-matrix.md) to check for regressions in execution honesty, requirement traceability, exit recommendations, defect triage, and safe handling of untrusted or destructive scenarios. The matrix evaluates assistant behavior; it is not an application test suite and a passing run does not guarantee correct behavior for every task.
 
-## 7. Close with an honest next step
+## 8. Close with an honest next step
 
 State what was verified, what remains uncertain or untested, and the highest-value next action. Keep claims traceable to observations or cited evidence. Never fabricate execution, screenshots, logs, results, or coverage.
