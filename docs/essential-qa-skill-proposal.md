@@ -117,9 +117,9 @@ The skill is successful if it:
 8. remains usable with different browsers, test frameworks, and MCP tools;
 9. distinguishes mapped/planned coverage from executed and evidence-supported verification;
 10. applies anchored risk-rating definitions consistently and does not treat unknown risk inputs as low;
-11. derives any overall QA recommendation from agreed criteria and evidence, not from pass counts, and does not present the recommendation as release authorization; and
-12. keeps defect severity separate from fix priority, uses explicit rating anchors or the project's taxonomy, and marks unsupported classifications as unassessed, unassigned, or provisional; and
-13. can be regression-evaluated against stable scenarios covering evidence integrity, traceability, exit decisions, defect triage, untrusted content, and safe execution. and
+11. derives any overall QA recommendation from agreed criteria and evidence, not from pass counts, and does not present the recommendation as release authorization;
+12. keeps defect severity separate from fix priority, uses explicit rating anchors or the project's taxonomy, and marks unsupported classifications as unassessed, unassigned, or provisional;
+13. can be regression-evaluated against stable scenarios covering evidence integrity, traceability, exit decisions, defect triage, untrusted content, and safe execution; and
 14. prevents execution of affected checks when mandatory environment, authorization, data-isolation, dependency, or recovery prerequisites are blocked or unknown.
 
 ## Suggested evaluation scenarios
@@ -141,7 +141,7 @@ The skill is successful if it:
 
 ## Evaluation matrix
 
-The [Essential QA evaluation matrix](../.claude/skills/essential-qa/evaluations/essential-qa-evaluation-matrix.md) provides stable, synthetic regression scenarios and observable grading criteria. It covers plan-versus-execution claims, blocked access, ambiguous evidence, requirement traceability, release recommendations, severity/priority separation, incident routing, untrusted application content, destructive actions, and unknown risk inputs. Evaluation outcomes are distinct from application test statuses. Any hard failure involving fabricated execution or unsafe behavior fails the overall evaluation regardless of other case results.
+The [Essential QA evaluation matrix](../.claude/skills/essential-qa/evaluations/essential-qa-evaluation-matrix.md) provides stable, synthetic regression scenarios and observable grading criteria. It covers plan-versus-execution claims, blocked access, ambiguous evidence, requirement traceability, release recommendations, severity/priority separation, incident routing, untrusted application content, destructive actions, unknown risk inputs, and environment-readiness gates. Evaluation outcomes are distinct from application test statuses. Any hard failure involving fabricated execution or unsafe behavior fails the overall evaluation regardless of other case results.
 
 The matrix is intended for repeatable manual model-behavior evaluation. It does not execute application tests or guarantee behavior outside the tested model, configuration, and prompts.
 
