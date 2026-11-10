@@ -1,6 +1,6 @@
 # QA Evidence Record
 
-Use this record for a scoped QA activity. Duplicate the check row for each scenario. Keep evidence traceable and redact secrets or personal data. Replace placeholders with observations; do not fill missing facts by guessing.
+Use this record for a scoped QA activity. Duplicate the check row for each scenario. Keep evidence traceable and redact secrets or personal data. Follow the [QA evidence handling and redaction guide](qa-evidence-handling-guide.md) before copying or sharing artifacts. Replace placeholders with observations; do not fill missing facts by guessing.
 
 ## Context
 
@@ -32,9 +32,9 @@ Use the coverage states defined in the Essential QA skill. A mapped or planned c
 
 ## Check design and execution record
 
-| Check ID | Preconditions / data | Action / steps | Expected result | Actual observation | Status | Evidence reference | Notes |
-|---|---|---|---|---|---|---|---|
-| QA-001 | | | | | NOT RUN | | |
+| Check ID | Preconditions / data | Action / steps | Expected result | Actual observation | Status | Evidence reference | Evidence handling | Notes |
+|---|---|---|---|---|---|---|---|---|
+| QA-001 | | | | | NOT RUN | | NOT REVIEWED | |
 
 Allowed statuses: **PASS**, **FAIL**, **BLOCKED**, **NOT RUN**, **NEEDS REVIEW**.
 
@@ -43,6 +43,16 @@ Allowed statuses: **PASS**, **FAIL**, **BLOCKED**, **NOT RUN**, **NEEDS REVIEW**
 - For **NEEDS REVIEW**, explain what is ambiguous and what judgment is required.
 - For **NOT RUN**, record why it was not attempted when known.
 - Reference screenshots, logs, traces, reports, or URLs where available. Do not paste secrets into the record.
+
+## Evidence handling record
+
+Use one row per screenshot, log excerpt, trace, API example, recording, or other artifact. Reference restricted originals only through an approved access-controlled location; put only a verified redacted copy in a shareable report.
+
+| Evidence ID | Related check / defect | Source / description | Data classification | Artifact type (original / working copy / redacted copy) | Redaction status / categories | Verification performed | Approved storage reference / owner | Retention or incident reference |
+|---|---|---|---|---|---|---|---|---|
+| EVID-001 | QA-001 | | | | NOT REVIEWED | | | |
+
+Allowed handling labels: **NOT REVIEWED**, **REDACTION REQUIRED**, **REDACTED — NOT VERIFIED**, **REDACTED — VERIFIED**, **RESTRICTED — DO NOT SHARE**. Do not claim redaction or approval without evidence. If sensitive content may indicate an incident, preserve the original in the approved restricted location and follow the specialist incident-response process; do not overwrite or casually delete the sole original.
 
 ## Defect notes
 
