@@ -28,7 +28,7 @@ Use `READY`, `BLOCKED`, `NOT CHECKED`, `N/A`, or `ACCEPTED LIMITATION` for each 
 | Identity and access | Are the required test accounts and roles available, least-privileged, and safe to use? Are credentials handled through approved secret storage? | NOT CHECKED | |
 | Test data | Is data synthetic or approved, isolated from real customers, and in a known starting state? Is cleanup or reset understood? | NOT CHECKED | |
 | External effects and dependencies | Are payment, email, SMS, webhooks, queues, third-party services, and rate limits understood? Are sandboxes or safe stubs configured where needed? | NOT CHECKED | |
-| Observability and evidence | Are the required logs, metrics, traces, and correlation IDs available? Can evidence be captured without exposing secrets or personal data? | NOT CHECKED | |
+| Observability and evidence | Are the required logs, metrics, traces, and correlation IDs available? Can evidence be minimized, redacted, verified, and stored in an approved location without exposing secrets or personal data? See the [QA evidence handling and redaction guide](qa-evidence-handling-guide.md). | NOT CHECKED | |
 | Test tools and generators | Are tool versions, connectivity, permissions, and configuration known? For load tests, is generator capacity verified and is the maximum offered load bounded? | NOT CHECKED | |
 | Safety and recovery | Are stop/abort conditions, cleanup, rollback, and recovery ownership defined for any state-changing test? Is a backup or restore path required and confirmed? | NOT CHECKED | |
 | Change coordination | Is the test window agreed with affected owners? Are deployments, maintenance, background jobs, and competing tests known? | NOT CHECKED | |
