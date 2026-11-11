@@ -35,7 +35,7 @@ python scripts/validate_skills.py
 python -m unittest discover -s tests -v
 ~~~
 
-The validator checks required skill frontmatter fields, skill-name/directory consistency,
+The skill validator checks required skill frontmatter fields, skill-name/directory consistency,
 duplicate skill names, and inline relative Markdown links inside `.claude/skills/`. It does
 not perform a full YAML parse, verify external URLs, or judge whether a skill's QA guidance
-is correct; reviewers should still inspect the workflow and examples.
+is correct.\n\nThe evaluation-matrix validator checks unique case IDs, the required Prompt, Mandatory\nobservations, and Hard failure sections, plus exact coverage between regression cases and\nresult-log rows. It also checks that each result uses PASS, PARTIAL, FAIL, or NOT EVALUATED.\nThese checks validate matrix structure only: they do not run prompts against a model or\ngrade assistant responses. Reviewers must still assess the quality of the scenarios and\nrecorded evaluation evidence.
