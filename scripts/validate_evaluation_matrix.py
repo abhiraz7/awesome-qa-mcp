@@ -116,7 +116,7 @@ def validate_evaluation_matrix(
         if not cells or not CASE_ID_PREFIX_RE.match(cells[0]):
             continue
 
-        match = RESULT_ROW_RE.fullmatch(stripped)
+        match = RESULT_ROW_RE.match(stripped)
         if not match:
             errors.append(
                 f"{source}: malformed result-log row at section line {line_number}: '{stripped}'"
