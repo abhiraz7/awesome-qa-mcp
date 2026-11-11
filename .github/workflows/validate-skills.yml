@@ -9,6 +9,7 @@ on:
       - "tests/test_validate_skills.py"
       - "tests/test_validate_evaluation_matrix.py"
       - "CONTRIBUTING.md"
+      - "docs/essential-qa-skill-proposal.md"
       - ".github/workflows/validate-skills.yml"
   push:
     paths:
@@ -18,6 +19,7 @@ on:
       - "tests/test_validate_skills.py"
       - "tests/test_validate_evaluation_matrix.py"
       - "CONTRIBUTING.md"
+      - "docs/essential-qa-skill-proposal.md"
       - ".github/workflows/validate-skills.yml"
   workflow_dispatch:
 
